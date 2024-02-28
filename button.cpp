@@ -4,7 +4,7 @@
 #include "Table.h"
 #include "getchValue.h"
 #include <conio.h>
-#include "Delay.h"
+//#include "Delay.h"
 #define gc getchcout
 //#include "enrollment.cpp"
 
@@ -964,7 +964,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 	system("cls");
 	string students[3][19];
 	int i; // student counter
-	string poolnum = "20240001"; // pooling num
+	int poolnum = 20240000; // pooling num
 	
 		table();
 		char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = ""
@@ -1162,6 +1162,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					coorxy(43, 27); cout << "  ";
 					coorxy(61, 27); cout << "  ";
 					if (students[i][0] == "") {
+
 						students[i][0] = poolnum;
 
 					}
