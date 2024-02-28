@@ -21,9 +21,10 @@ int menu(int x) {
 			, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
 			, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
 			, gcnum[32] = "", grelation[32] = "";
+		int poolingnum[32];
 
 		int counter = 1,n;
-
+	
 		Q:
 		switch (counter) {
 		case 1:
@@ -963,6 +964,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 	system("cls");
 	string students[3][19];
 	int i; // student counter
+	string poolnum = "20240001"; // pooling num
 	
 		table();
 		char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = ""
@@ -1159,6 +1161,10 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					students[i][17] = grelation;
 					coorxy(43, 27); cout << "  ";
 					coorxy(61, 27); cout << "  ";
+					if (students[i][0] == "") {
+						students[i][0] = poolnum;
+
+					}
 				}
 			break;
 			case 19:
