@@ -1134,26 +1134,31 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					else if (a == 80 || a == 77) counter++;
 				}
 				else if (a == 13) {
-				coorxy(42, 27); cout << "  ";
-				coorxy(62, 27); cout << "  ";
-				students[i][1] = fname;
-				students[i][2] = mname;
-				students[i][3] = lname;
-				students[i][4] = age;
-				students[i][5] = gender;
-				students[i][6] = lrn;
-				students[i][7] = bmonth;
-				students[i][8] = bday;
-				students[i][9] = byear;
-				students[i][10] = barangay;
-				students[i][11] = municipality;
-				students[i][12] = province;
-				//students[i][13] = postalzip;
-				students[i][13] = gfname;
-				students[i][14] = gmname;
-				students[i][15] = glname;
-				students[i][16] = gcnum;
-				students[i][17] = grelation;
+					coorxy(42, 27); cout << "  ";
+					coorxy(62, 27); cout << "  ";
+					coorxy(43, 27); cout << "<<";
+					coorxy(61, 27); cout << ">>";
+					Sleep(100);
+					students[i][1] = fname;
+					students[i][2] = mname;
+					students[i][3] = lname;
+					students[i][4] = age;
+					students[i][5] = gender;
+					students[i][6] = lrn;
+					students[i][7] = bmonth;
+					students[i][8] = bday;
+					students[i][9] = byear;
+					students[i][10] = barangay;
+					students[i][11] = municipality;
+					students[i][12] = province;
+					//students[i][13] = postalzip;
+					students[i][13] = gfname;
+					students[i][14] = gmname;
+					students[i][15] = glname;
+					students[i][16] = gcnum;
+					students[i][17] = grelation;
+					coorxy(43, 27); cout << "  ";
+					coorxy(61, 27); cout << "  ";
 				}
 			break;
 			case 19:
@@ -1169,11 +1174,23 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					else if (b == 80 || b == 77) counter++;
 				}
 				else if (b == 13) {
-					coorxy(42, 27); cout << "  ";
-					coorxy(62, 27); cout << "  ";
+					coorxy(67, 27); cout << "  ";
+					coorxy(87, 27); cout << "  ";
+					coorxy(68, 27); cout << "<<";
+					coorxy(86, 27); cout << ">>";
+					Sleep(100);
 					for (int k = 1; k < 17; k++) {
 						students[i][k] = '\0';
 					}
+					coorxy(68, 27); cout << "  ";
+					coorxy(86, 27); cout << "  ";
+					system("cls");
+					table();
+					//coorxy(19, 6); cout << string(20, ' '); // fname
+					//coorxy(57, 6); cout << string(20, ' '); // mname
+					//coorxy(93, 6); cout << string(20, ' '); // lname
+					//coorxy(18, 8); cout << string(20, ' '); // age
+					//coorxy(18, 10); cout << string(20, ' '); // gender
 				}
 				break;
 			case 20:
@@ -1189,6 +1206,11 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					else if (c == 80 || c == 77) counter=1;
 				}
 				else if (c == 13) {
+					coorxy(92, 27); cout << "  ";
+					coorxy(112, 27); cout << "  ";
+					coorxy(93, 27); cout << "<<";
+					coorxy(111, 27); cout << ">>";
+					Sleep(100);
 					system("cls");
 					exit = 1;
 				}
@@ -1199,11 +1221,11 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 		system("cls");
 
 		/////// display
-		for (int i = 0; i < 1; i++) {
+		/*for (int i = 0; i < 1; i++) {
 			for (int j = 1; j < 19; j++) {
 				cout << students[i][j] << endl;
 			}
-		}
+		}*/
 
 
 		coorxy(0, 29); system("pause");
