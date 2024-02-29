@@ -76,6 +76,7 @@ void table() {
 	//coorxy(0, 29); system("pause");
 	//system("cls");
 
+	
 
 
 	//int n = 0;

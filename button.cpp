@@ -4,6 +4,7 @@
 #include "Table.h"
 #include "getchValue.h"
 #include <conio.h>
+#include <string>
 //#include "Delay.h"
 #define gc getchcout
 //#include "enrollment.cpp"
@@ -1161,9 +1162,27 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					students[i][17] = grelation;
 					coorxy(43, 27); cout << "  ";
 					coorxy(61, 27); cout << "  ";
-					if (students[i][0] == "") {
-
-						students[i][0] = poolnum;
+					int key = 0;
+					for (int m = 0; m < 18; m++) {
+						if (students[i][m] != "") {
+							key = 1;
+						}
+					}
+					if (key == 1) {
+						key = 0;
+						poolnum++;
+						string pn = to_string(poolnum);
+						students[i][0] = pn; 
+						// Pooling number table
+						coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
+						n = 0;
+						coorxy(28, 27); cout << char(179);
+						for (int i = 0; i < 2; i++) {
+							coorxy(3, 26 + n); cout << string(26, char(196));
+							n += 2;
+						}
+					}
+					else {
 
 					}
 				}
@@ -1181,23 +1200,48 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					else if (b == 80 || b == 77) counter++;
 				}
 				else if (b == 13) {
+					
 					coorxy(67, 27); cout << "  ";
 					coorxy(87, 27); cout << "  ";
 					coorxy(68, 27); cout << "<<";
 					coorxy(86, 27); cout << ">>";
 					Sleep(100);
-					for (int k = 1; k < 17; k++) {
-						students[i][k] = '\0';
+					for (int k = 0; k < 18; k++) {
+						students[i][k] = "\0";
+					}
+					// youre here deleting the char fname values - done
+					for (int o = 0; o < 1; o++) {
+						fname[i] = '\0';
+						mname[i] = '\0';
+						lname[i] = '\0';
+						age[i] = '\0';
+						gender[i] = '\0';
+						lrn[i] = '\0';
+						bmonth[i] = '\0';
+						bday[i] = '\0';
+						byear[i] = '\0';
+						barangay[i] = '\0';
+						municipality[i] = '\0';
+						province[i] = '\0';
+						gfname[i] = '\0';
+						gmname[i] = '\0';
+						glname[i] = '\0';
+						gcnum[i] = '\0';
+						grelation[i] = '\0';
+						
+					}
+					poolnum--; // Youre here with the problem of spamming "delete"
+					n = 0;
+					coorxy(3, 27); cout << string(20, ' ') ;
+					coorxy(28, 27); cout << ' ';
+					for (int i = 0; i < 2; i++) {
+						coorxy(3, 26 + n); cout << string(26, ' ');
+						n += 2;
 					}
 					coorxy(68, 27); cout << "  ";
 					coorxy(86, 27); cout << "  ";
 					system("cls");
 					table();
-					//coorxy(19, 6); cout << string(20, ' '); // fname
-					//coorxy(57, 6); cout << string(20, ' '); // mname
-					//coorxy(93, 6); cout << string(20, ' '); // lname
-					//coorxy(18, 8); cout << string(20, ' '); // age
-					//coorxy(18, 10); cout << string(20, ' '); // gender
 				}
 				break;
 			case 20:
@@ -1237,3 +1281,4 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 
 		coorxy(0, 29); system("pause");
 }
+

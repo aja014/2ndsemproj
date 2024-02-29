@@ -158,3 +158,8 @@ void getchcout(char x[]) { // x = array of letters  y is size of letters
 	}
 }
 
+void delarr(char x[]) {
+	for (int i = 0; i < 32; i++) {
+		x[i] = '\0';
+	}
+}
