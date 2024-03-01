@@ -964,16 +964,19 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 
 	system("cls");
 	string students[3][19];
+	string finder;
 	int i; // student counter
 	int poolnum = 20240000; // pooling num
+	string searchpool[32];
 	
 		table();
 		char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = ""
 			, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
 			, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
 			, gcnum[32] = "", grelation[32] = "";
+		char d;
 
-		int counter = 1, n;
+		int counter = 0, n;
 
 		int exit=0;
 	Q:
@@ -981,11 +984,69 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 
 
 			switch (counter) {
+			case 0:
+
+				
+				coorxy(31, 2);
+				for (int j = 0;;) {
+					d = _getch();
+					if (d == -32) {
+						d = _getch();
+						if (d == 72 || d == 75) {
+							counter = 20;
+							break;
+						}
+						else if (d == 80 || d == 77) {
+							counter++;
+							break;
+						}
+					}
+					else if (d == 8 && j >= 1) {
+						cout << "\b \b";
+						searchpool[--j] = '\0';
+					}
+					else if ((d >= '0' && d <= '9') && j < 8) {
+						cout << d;
+						searchpool[j] = d;
+						++j;
+					}
+					else if (d == 13) {
+						counter++;
+						searchpool[j] = '\0';
+						break;
+					}
+				}
+
+				for (int j = 0; j < 8; j++) { // converting string array searchpoolnum[32] to single value finder
+					finder += searchpool[j];
+				}
+
+				
+
+				for (int j = 0; j < 3; j++) { // pooling number finder
+					
+					if (students[i][0] == finder && students[i][0] != "") {
+
+						coorxy(1, 4); cout << "found";
+						finder = "";
+						coorxy(19, 6); cout << students[i][1];
+
+						break;
+					}
+					else {
+						coorxy(1, 4); cout << "not found";
+						finder = "";
+						break;
+					}
+				}
+
+			
+				break;
 			case 1:
 				coorxy(19, 6); n = getchVal(fname, 0);
 				coorxy(19, 6); cout << string(20, ' ');
 				coorxy(19, 6); getchcout(fname);
-				if (n == 101) counter = 20;
+				if (n == 101) counter--;
 				else counter++;
 				goto Q;
 				break;
@@ -1163,16 +1224,18 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					coorxy(43, 27); cout << "  ";
 					coorxy(61, 27); cout << "  ";
 					int key = 0;
-					for (int m = 0; m < 18; m++) {
+					for (int m = 0; m < 18; m++) { // checking if students have pool number
 						if (students[i][m] != "") {
 							key = 1;
 						}
 					}
 					if (key == 1) {
-						key = 0;
-						poolnum++;
-						string pn = to_string(poolnum);
-						students[i][0] = pn; 
+						if (students[i][0] == "") { // making student number
+							key = 0;
+							poolnum++;
+							string pn = to_string(poolnum);
+							students[i][0] = pn; 
+						}
 						// Pooling number table
 						coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
 						n = 0;
@@ -1182,9 +1245,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							n += 2;
 						}
 					}
-					else {
-
-					}
+					
 				}
 			break;
 			case 19:
@@ -1206,8 +1267,11 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					coorxy(68, 27); cout << "<<";
 					coorxy(86, 27); cout << ">>";
 					Sleep(100);
-					for (int k = 0; k < 18; k++) {
-						students[i][k] = "\0";
+					if (students[i][0] != "") {
+						poolnum--; // Youre here with the problem of spamming "delete" - done
+						for (int k = 0; k < 18; k++) {
+							students[i][k] = "\0";
+						}
 					}
 					// youre here deleting the char fname values - done
 					for (int o = 0; o < 1; o++) {
@@ -1228,9 +1292,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						glname[i] = '\0';
 						gcnum[i] = '\0';
 						grelation[i] = '\0';
-						
 					}
-					poolnum--; // Youre here with the problem of spamming "delete"
 					n = 0;
 					coorxy(3, 27); cout << string(20, ' ') ;
 					coorxy(28, 27); cout << ' ';
@@ -1254,7 +1316,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					coorxy(92, 27); cout << "  ";
 					coorxy(112, 27); cout << "  ";
 					if (c == 72 || c == 75) counter--;
-					else if (c == 80 || c == 77) counter=1;
+					else if (c == 80 || c == 77) counter=0;
 				}
 				else if (c == 13) {
 					coorxy(92, 27); cout << "  ";
@@ -1270,13 +1332,6 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			if (exit == 1) break;
 		}
 		system("cls");
-
-		/////// display
-		/*for (int i = 0; i < 1; i++) {
-			for (int j = 1; j < 19; j++) {
-				cout << students[i][j] << endl;
-			}
-		}*/
 
 
 		coorxy(0, 29); system("pause");
