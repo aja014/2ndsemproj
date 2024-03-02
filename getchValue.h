@@ -12,7 +12,7 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 	int num =1;
 	char a;
 
-	for (int i = 0;;) {
+	for (int z = 0;;) {
 		a = _getch();
 
 		if (a == -32) {
@@ -21,13 +21,13 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 			else if (a == 80 || a == 77) return 111;
 		}
 		else if (a == 13) {
-			x[i] = '\0';
+			x[z] = '\0';
 			return 111;
 			break;
 		}
-		else if (a == 8 && i >= 1) {
+		else if (a == 8 && z >= 1) {
 			cout << "\b \b";
-			x[--i] = '\0';
+			x[--z] = '\0';
 		}
 		else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
 			if (num == 1) {
@@ -39,32 +39,32 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 			}
 			if (l >= 2 && l <=11) { // age
 				if ((a >= '0' && a <= '9')) {
-					if (l ==2  && i < 2) { // age and bday
+					if (l ==2  && z < 2) { // age and bday
 						cout << a;
-						x[i] = a;
-						++i;
+						x[z] = a;
+						++z;
 					}
-					else if (l == 11 && i < 11) { // gnumber
+					else if (l == 11 && z < 11) { // gnumber
 						cout << a;
-						x[i] = a;
-						++i;
+						x[z] = a;
+						++z;
 					}
-					else if (l==4 && i < 4) { // byear and zip
+					else if (l==4 && z < 4) { // byear and zip
 						cout << a;
-						x[i] = a;
-						++i;
+						x[z] = a;
+						++z;
 					}
-					else if (l == 12 && i < 11) { // gnumber
+					else if (l == 12 && z < 11) { // gnumber
 						cout << a;
-						x[i] = a;
-						++i;
+						x[z] = a;
+						++z;
 					}
 				}
 			}
 			else {
 			cout << a;
-			x[i] = a;
-			++i;
+			x[z] = a;
+			++z;
 			}
 		}
 	}
@@ -74,9 +74,9 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 }
 
 void getchcout(char x[]) { // x = array of letters  y is size of letters
-	for (int i = 0;; i++) {
-		if (x[i] >= 'a' && x[i] <= 'z' || x[i] >= 'A' && x[i] <= 'Z' || x[i] >= '0' && x[i] <= '9' || x[i] == ' ') {
-			cout << x[i];
+	for (int z = 0;; z++) {
+		if (x[z] >= 'a' && x[z] <= 'z' || x[z] >= 'A' && x[z] <= 'Z' || x[z] >= '0' && x[z] <= '9' || x[z] == ' ') {
+			cout << x[z];
 		}
 		else {
 			break;
@@ -86,8 +86,8 @@ void getchcout(char x[]) { // x = array of letters  y is size of letters
 }
 
 void delarr(char x[]) { // deleting array
-	for (int i = 0; i < 32; i++) {
-		x[i] = '\0';
+	for (int z = 0; z < 32; z++) {
+		x[z] = '\0';
 	}
 }
 

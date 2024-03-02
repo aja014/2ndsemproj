@@ -980,8 +980,8 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 		int counter = 0, n;
 
 		int exit=0;
-	Q:
 		for (i = 0;;) {
+			Q:
 
 
 			switch (counter) {
@@ -1012,7 +1012,6 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						++j;
 					}
 					else if (d == 13) {
-						counter = 0;
 						//counter++;
 						searchpool[j] = '\0';
 
@@ -1022,14 +1021,14 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						}
 						for (int k = 0; k < 3; k++) { // pooling number finder
 							if (students[k][0] == finder && students[k][0] != "") {
-								i = j;
+								i = k;
 								coorxy(1, 4); cout << "found";
 								finder = "";
 								coorxy(19, 6); cout << students[k][1]; // youre here at displaying if found and puting value on varialble
 								coorxy(57, 6); cout << students[k][2];
 								coorxy(93, 6); cout << students[k][3];
 								coorxy(18, 8); cout << students[k][4];
-								coorxy(56, 10); cout << students[k][5];
+								coorxy(18, 10); cout << students[k][5];
 								coorxy(56, 10); cout << students[k][6];
 								coorxy(26, 12); cout << students[k][7];
 								coorxy(56, 12); cout << students[k][8];
@@ -1062,8 +1061,6 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								strcpy_s(grelation, sizeof(grelation), students[k][17].c_str());
 								coorxy(31, 2);
 
-
-
 								break;
 							}
 							else { // removing the variables value and display - done
@@ -1071,7 +1068,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								coorxy(57, 6); cout << string(20, ' '); // mname
 								coorxy(93, 6); cout << string(20, ' '); // lname
 								coorxy(18, 8); cout << string(20, ' '); // age
-								coorxy(56, 10); cout << string(20, ' '); // gender
+								coorxy(18, 10); cout << string(20, ' '); // gender
 								coorxy(56, 10); cout << string(20, ' '); // lrn
 								coorxy(26, 12); cout << string(20, ' '); // bmonth
 								coorxy(56, 12); cout << string(20, ' '); // bday
@@ -1106,23 +1103,19 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								}
 
 								coorxy(1, 4); cout << "not found";
-								coorxy(31, 2); cout << string(8, ' ');
-								coorxy(31, 2);
-								finder = "";
-								j = 0;
-								break;
+							//	break;
 							}
-						break;
-
+						//break;
 						}
+						coorxy(31, 2); cout << string(8, ' ');
+						j = 0;
+						finder = "";
+						counter = 0;
+						goto Q;
 					}
 				}
 
 
-				
-
-
-			
 				break;
 			case 1:
 				coorxy(19, 6); n = getchVal(fname, 0);
@@ -1285,6 +1278,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					coorxy(43, 27); cout << "<<";
 					coorxy(61, 27); cout << ">>";
 					Sleep(100);
+				
 					students[i][1] = fname;
 					students[i][2] = mname;
 					students[i][3] = lname;
@@ -1306,27 +1300,54 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					coorxy(43, 27); cout << "  ";
 					coorxy(61, 27); cout << "  ";
 					int key = 0;
-					for (int m = 0; m < 18; m++) { // checking if students have pool number
-						if (students[i][m] != "") {
+					for (int m = 1; m < 18; m++) { // checking if students have pool number
+						if (students[i][0] == "" && students[i][m] == "") {
+							break;
+						}
+						else {
 							key = 1;
 						}
 					}
+					key = 1;
 					if (key == 1) {
-						if (students[i][0] == "") { // making student number
+						if (students[i][0] == "") { // making student number - done
 							key = 0;
 							poolnum++;
 							string pn = to_string(poolnum);
 							students[i][0] = pn; 
+							i++;
 						}
 						// Pooling number table
-						coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
-						n = 0;
-						coorxy(28, 27); cout << char(179);
-						for (int j = 0; j < 2; j++) {
-							coorxy(3, 26 + n); cout << string(26, char(196));
-							n += 2;
+						//coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
+						//n = 0;
+						//coorxy(28, 27); cout << char(179);
+						//for (int j = 0; j < 2; j++) {
+						//	coorxy(3, 26 + n); cout << string(26, char(196));
+						//	n += 2;
+						//}
+
+						for (int o = 0; o < 1; o++) { // erasing char variables
+							fname[o] = '\0';
+							mname[o] = '\0';
+							lname[o] = '\0';
+							age[o] = '\0';
+							gender[o] = '\0';
+							lrn[o] = '\0';
+							bmonth[o] = '\0';
+							bday[o] = '\0';
+							byear[o] = '\0';
+							barangay[o] = '\0';
+							municipality[o] = '\0';
+							province[o] = '\0';
+							gfname[o] = '\0';
+							gmname[o] = '\0';
+							glname[o] = '\0';
+							gcnum[o] = '\0';
+							grelation[o] = '\0';
 						}
-						i++;
+						system("cls");
+						table();
+
 					}
 					
 				}
@@ -1358,28 +1379,28 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					}
 					// youre here deleting the char fname values - done
 					for (int o = 0; o < 1; o++) {
-						fname[i] = '\0';
-						mname[i] = '\0';
-						lname[i] = '\0';
-						age[i] = '\0';
-						gender[i] = '\0';
-						lrn[i] = '\0';
-						bmonth[i] = '\0';
-						bday[i] = '\0';
-						byear[i] = '\0';
-						barangay[i] = '\0';
-						municipality[i] = '\0';
-						province[i] = '\0';
-						gfname[i] = '\0';
-						gmname[i] = '\0';
-						glname[i] = '\0';
-						gcnum[i] = '\0';
-						grelation[i] = '\0';
+						fname[o] = '\0';
+						mname[o] = '\0';
+						lname[o] = '\0';
+						age[o] = '\0';
+						gender[o] = '\0';
+						lrn[o] = '\0';
+						bmonth[o] = '\0';
+						bday[o] = '\0';
+						byear[o] = '\0';
+						barangay[o] = '\0';
+						municipality[o] = '\0';
+						province[o] = '\0';
+						gfname[o] = '\0';
+						gmname[o] = '\0';
+						glname[o] = '\0';
+						gcnum[o] = '\0';
+						grelation[o] = '\0';
 					}
 					n = 0;
 					coorxy(3, 27); cout << string(20, ' ') ;
 					coorxy(28, 27); cout << ' ';
-					for (int i = 0; i < 2; i++) {
+					for (int x = 0; x < 2; x++) {
 						coorxy(3, 26 + n); cout << string(26, ' ');
 						n += 2;
 					}
