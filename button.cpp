@@ -1029,7 +1029,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 
 								break;
 							}
-							else { // removing the variables value and display
+							else { // removing the variables value and display - done
 								coorxy(19, 6); cout << string(20, ' '); // fname
 								coorxy(57, 6); cout << string(20, ' '); // mname
 								coorxy(93, 6); cout << string(20, ' '); // lname
