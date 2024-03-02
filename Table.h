@@ -38,12 +38,12 @@ void table() {
 	}
 	n = 0;
 	for (int i = 0; i < 2; i++) { // search bar
-		coorxy(3, 1+n); cout << string(114, char(196));
+		coorxy(3, 1+n); cout << string(38, char(196));
 		n += 2;
 	}
 
 
-	coorxy(3, 2); cout << char(179) << " Search Pooling number " << char(179) << " :"; coorxy(116, 2); cout << char(179);
+	coorxy(3, 2); cout << char(179) << " Search Pooling number " << char(179) << " :"; coorxy(40, 2); cout << char(179);
 	coorxy(5, 6); cout << "First name " << char(179) << ":";
 	coorxy(40, 6); cout << char(179) << " Middle name " << char(179) << ":";
 	coorxy(78, 6); cout << char(179) << " Last name " << char(179) << ":";

@@ -1013,32 +1013,74 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					else if (d == 13) {
 						counter++;
 						searchpool[j] = '\0';
+
+						for (int j = 0; j < 8; j++) { // converting string array searchpoolnum[32] to single value finder
+							finder += searchpool[j];
+
+						}
+						for (int j = 0; j < 3; j++) { // pooling number finder
+							if (students[j][0] == finder && students[j][0] != "") {
+								i = j;
+								coorxy(1, 4); cout << "found";
+								finder = "";
+								coorxy(19, 6); cout << students[i][1]; // youre here at displaying if found
+								coorxy(57, 6); cout << students[i][2];
+								coorxy(93, 6); cout << students[i][3];
+
+								break;
+							}
+							else { // removing the variables value and display
+								coorxy(19, 6); cout << string(20, ' '); // fname
+								coorxy(57, 6); cout << string(20, ' '); // mname
+								coorxy(93, 6); cout << string(20, ' '); // lname
+								coorxy(18, 8); cout << string(20, ' '); // age
+								coorxy(56, 10); cout << string(20, ' '); // gender
+								coorxy(56, 10); cout << string(20, ' '); // lrn
+								coorxy(26, 12); cout << string(20, ' '); // bmonth
+								coorxy(56, 12); cout << string(20, ' '); // bday
+								coorxy(93, 12); cout << string(20, ' '); // byear
+								coorxy(29, 14); cout << string(30, ' '); // barangay
+								coorxy(33, 16); cout << string(30, ' '); // municipality
+								coorxy(29, 18); cout << string(30, ' '); // province
+								coorxy(31, 20); cout << string(17, ' '); // guardian first name
+								coorxy(65, 20); cout << string(15, ' '); // guardian middle name
+								coorxy(97, 20); cout << string(17, ' '); // guardian last name
+								coorxy(35, 22); cout << string(17, ' '); // guardian contact number
+								coorxy(29, 24); cout << string(30, ' '); // guardian relation
+
+								for (int o = 0; o < 1; o++) {
+									fname[i] = '\0';
+									mname[i] = '\0';
+									lname[i] = '\0';
+									age[i] = '\0';
+									gender[i] = '\0';
+									lrn[i] = '\0';
+									bmonth[i] = '\0';
+									bday[i] = '\0';
+									byear[i] = '\0';
+									barangay[i] = '\0';
+									municipality[i] = '\0';
+									province[i] = '\0';
+									gfname[i] = '\0';
+									gmname[i] = '\0';
+									glname[i] = '\0';
+									gcnum[i] = '\0';
+									grelation[i] = '\0';
+								}
+
+								coorxy(1, 4); cout << "not found";
+								finder = "";
+								break;
+							}
 						break;
+
+						}
 					}
 				}
 
-				for (int j = 0; j < 8; j++) { // converting string array searchpoolnum[32] to single value finder
-					finder += searchpool[j];
-				}
 
 				
 
-				for (int j = 0; j < 3; j++) { // pooling number finder
-					
-					if (students[i][0] == finder && students[i][0] != "") {
-
-						coorxy(1, 4); cout << "found";
-						finder = "";
-						coorxy(19, 6); cout << students[i][1];
-
-						break;
-					}
-					else {
-						coorxy(1, 4); cout << "not found";
-						finder = "";
-						break;
-					}
-				}
 
 			
 				break;
@@ -1116,7 +1158,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 				break;
 			case 10:
 				coorxy(29, 14); n = getchVal(barangay, 0);
-				coorxy(29, 14); cout << string(20, ' ');
+				coorxy(29, 14); cout << string(30, ' ');
 				coorxy(29, 14); getchcout(barangay);
 				if (n == 101) counter--;
 				else counter++;
@@ -1124,7 +1166,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 				break;
 			case 11:
 				coorxy(33, 16); n = getchVal(municipality, 0);
-				coorxy(33, 16); cout << string(20, ' ');
+				coorxy(33, 16); cout << string(30, ' ');
 				coorxy(33, 16); getchcout(municipality);
 				if (n == 101) counter--;
 				else counter++;
@@ -1132,7 +1174,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 				break;
 			case 12:
 				coorxy(29, 18); n = getchVal(province, 0);
-				coorxy(29, 18); cout << string(20, ' ');
+				coorxy(29, 18); cout << string(30, ' ');
 				coorxy(29, 18); getchcout(province);
 				if (n == 101) counter--;
 				else counter++;
@@ -1240,11 +1282,12 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
 						n = 0;
 						coorxy(28, 27); cout << char(179);
-						for (int i = 0; i < 2; i++) {
+						for (int j = 0; j < 2; j++) {
 							coorxy(3, 26 + n); cout << string(26, char(196));
 							n += 2;
 						}
 					}
+					i++;
 					
 				}
 			break;
