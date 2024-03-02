@@ -4,7 +4,8 @@
 #include "Table.h"
 #include "getchValue.h"
 #include <conio.h>
-#include <string>
+#include <string> // for conversion	
+#include <cstring> // for copying value
 //#include "Delay.h"
 #define gc getchcout
 //#include "enrollment.cpp"
@@ -1011,21 +1012,57 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						++j;
 					}
 					else if (d == 13) {
-						counter++;
+						counter = 0;
+						//counter++;
 						searchpool[j] = '\0';
 
-						for (int j = 0; j < 8; j++) { // converting string array searchpoolnum[32] to single value finder
-							finder += searchpool[j];
+						for (int k = 0; k < 8; k++) { // converting string array searchpoolnum[32] to single value finder
+							finder += searchpool[k];
 
 						}
-						for (int j = 0; j < 3; j++) { // pooling number finder
-							if (students[j][0] == finder && students[j][0] != "") {
+						for (int k = 0; k < 3; k++) { // pooling number finder
+							if (students[k][0] == finder && students[k][0] != "") {
 								i = j;
 								coorxy(1, 4); cout << "found";
 								finder = "";
-								coorxy(19, 6); cout << students[i][1]; // youre here at displaying if found
-								coorxy(57, 6); cout << students[i][2];
-								coorxy(93, 6); cout << students[i][3];
+								coorxy(19, 6); cout << students[k][1]; // youre here at displaying if found and puting value on varialble
+								coorxy(57, 6); cout << students[k][2];
+								coorxy(93, 6); cout << students[k][3];
+								coorxy(18, 8); cout << students[k][4];
+								coorxy(56, 10); cout << students[k][5];
+								coorxy(56, 10); cout << students[k][6];
+								coorxy(26, 12); cout << students[k][7];
+								coorxy(56, 12); cout << students[k][8];
+								coorxy(93, 12); cout << students[k][9];
+								coorxy(29, 14); cout << students[k][10];
+								coorxy(33, 16); cout << students[k][11];
+								coorxy(29, 18); cout << students[k][12];
+								coorxy(31, 20); cout << students[k][13];
+								coorxy(65, 20); cout << students[k][14];
+								coorxy(97, 20); cout << students[k][15];
+								coorxy(35, 22); cout << students[k][16];
+								coorxy(29, 24); cout << students[k][17];
+								
+								strcpy_s(fname, sizeof(fname), students[k][1].c_str()); // this is for storing the information of saved students to char variabale
+								strcpy_s(mname, sizeof(mname), students[k][2].c_str());
+								strcpy_s(lname, sizeof(lname), students[k][3].c_str());
+								strcpy_s(age, sizeof(age), students[k][4].c_str());
+								strcpy_s(gender, sizeof(gender), students[k][5].c_str());
+								strcpy_s(lrn, sizeof(lrn), students[k][6].c_str());
+								strcpy_s(bmonth, sizeof(bmonth), students[k][7].c_str());
+								strcpy_s(bday, sizeof(bday), students[k][8].c_str());
+								strcpy_s(byear, sizeof(byear), students[k][9].c_str());
+								strcpy_s(barangay, sizeof(barangay), students[k][10].c_str());
+								strcpy_s(municipality, sizeof(municipality), students[k][11].c_str());
+								strcpy_s(province, sizeof(province), students[k][12].c_str());
+								strcpy_s(gfname, sizeof(gfname), students[k][13].c_str());
+								strcpy_s(gmname, sizeof(gmname), students[k][14].c_str());
+								strcpy_s(glname, sizeof(glname), students[k][15].c_str());
+								strcpy_s(gcnum, sizeof(gcnum), students[k][16].c_str());
+								strcpy_s(grelation, sizeof(grelation), students[k][17].c_str());
+								coorxy(31, 2);
+
+
 
 								break;
 							}
@@ -1049,27 +1086,30 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								coorxy(29, 24); cout << string(30, ' '); // guardian relation
 
 								for (int o = 0; o < 1; o++) {
-									fname[i] = '\0';
-									mname[i] = '\0';
-									lname[i] = '\0';
-									age[i] = '\0';
-									gender[i] = '\0';
-									lrn[i] = '\0';
-									bmonth[i] = '\0';
-									bday[i] = '\0';
-									byear[i] = '\0';
-									barangay[i] = '\0';
-									municipality[i] = '\0';
-									province[i] = '\0';
-									gfname[i] = '\0';
-									gmname[i] = '\0';
-									glname[i] = '\0';
-									gcnum[i] = '\0';
-									grelation[i] = '\0';
+									fname[o] = '\0';
+									mname[o] = '\0';
+									lname[o] = '\0';
+									age[o] = '\0';
+									gender[o] = '\0';
+									lrn[o] = '\0';
+									bmonth[o] = '\0';
+									bday[o] = '\0';
+									byear[o] = '\0';
+									barangay[o] = '\0';
+									municipality[o] = '\0';
+									province[o] = '\0';
+									gfname[o] = '\0';
+									gmname[o] = '\0';
+									glname[o] = '\0';
+									gcnum[o] = '\0';
+									grelation[o] = '\0';
 								}
 
 								coorxy(1, 4); cout << "not found";
+								coorxy(31, 2); cout << string(8, ' ');
+								coorxy(31, 2);
 								finder = "";
+								j = 0;
 								break;
 							}
 						break;
@@ -1286,8 +1326,8 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							coorxy(3, 26 + n); cout << string(26, char(196));
 							n += 2;
 						}
+						i++;
 					}
-					i++;
 					
 				}
 			break;

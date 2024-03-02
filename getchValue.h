@@ -69,80 +69,7 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 		}
 	}
 
-		// to erase if letter is pressed at first
-
-
-		/*switch (a) {
-		 case 72:
-			 x[i] = '\0';
-			 break;
-			 return 101;
-		 case 80:
-			 x[i] = '\0';
-			 break;
-			 return 111;
-		 default:
-			 if (a == 13) {
-				 x[i] = '\0';
-				 break;
-			 }
-			 else if (a == 8 && i >= 1) {
-				 cout << "\b \b";
-				 x[--i] = '\0';
-			 }
-			 else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
-				 cout << a;
-				 x[i] = a;
-				 ++i;
-
-			 }
-			 break;
-		 }*/
-
-
-		 //if (a == 72 || a == 80) { // 101 is up, 111 is down
-			// //x[i] = '\0';
-			// if (a == 72) {
-			// return 101;
-			// }
-			// else {
-			//	 x[i] = '\0';
-			//	 return 111;
-			// }
-			// break;
-		 //}
-		 //else {
-			// if (a == 13) {
-			//	 x[i] = '\0';
-			//	 break;
-			// }
-			// else if (a == 8 && i >= 1) {
-			//	 cout << "\b \b";
-			//	 x[--i] = '\0';
-			// }
-			// else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
-			//	 cout << a;
-			//	 x[i] = a;
-			//	 ++i;
-			// }
-		 //}
-
-		 //if (a == 13) {
-			// x[i] = '\0';
-			//// return 111;
-			// break;
-		 //}
-		 //else if (a == 8 && i >= 1) {
-			// cout << "\b \b";
-			// x[--i] = '\0';
-		 //}
-		 //else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
-			// cout << a;
-			// x[i] = a;
-			// ++i;
-		 //}
-		 //return 0;
-	//}
+		
 	
 }
 
@@ -158,8 +85,9 @@ void getchcout(char x[]) { // x = array of letters  y is size of letters
 	}
 }
 
-void delarr(char x[]) {
+void delarr(char x[]) { // deleting array
 	for (int i = 0; i < 32; i++) {
 		x[i] = '\0';
 	}
 }
+
