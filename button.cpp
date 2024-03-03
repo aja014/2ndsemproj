@@ -964,22 +964,23 @@ int menu(int x) {
 int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 
 	system("cls");
-	string students[10][19];
-	string finder;
-	int i; // student counter
-	int poolnum = 20240000; // pooling num
-	string searchpool[32];
+	string students[10][19]; // Global variable
+	string finder; // Local variable
+	int i; // student counter // Global variable
+	int poolnum = 20240000; // pooling num // Global variable
+	string searchpool[32]; // local variable
 	
 		table();
-		char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = ""
+		char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = "" // local variable
 			, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
 			, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
 			, gcnum[32] = "", grelation[32] = "";
-		char d;
 
-		int counter = 0, n;
+		char d; // local variable
 
-		int exit=0;
+		int counter = 0, n; // local variable
+
+		int exit=0; // local variable
 		for (i = 0;;) {
 			Q:
 
@@ -1106,7 +1107,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								coorxy(1, 4); cout << "not found";
 								// You have business here if not found - done
 
-								int cn = 0; // counter finder of student who don't have pooling num
+								int cn = 0; // counter finder of student who don't have pooling num - done
 								while (students[cn][0] != "") {
 									cn++;
 									i = cn;
@@ -1330,16 +1331,16 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							poolnum++;
 							string pn = to_string(poolnum);
 							students[i][0] = pn; 
+							// Pooling number table
+							coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
+							n = 0;
+							coorxy(28, 27); cout << char(179);
+							for (int j = 0; j < 2; j++) {
+								coorxy(3, 26 + n); cout << string(26, char(196));
+								n += 2;
+							}
 							i++;
 						}
-						// Pooling number table
-						//coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
-						//n = 0;
-						//coorxy(28, 27); cout << char(179);
-						//for (int j = 0; j < 2; j++) {
-						//	coorxy(3, 26 + n); cout << string(26, char(196));
-						//	n += 2;
-						//}
 
 						for (int o = 0; o < 1; o++) { // erasing char variables
 							fname[o] = '\0';
@@ -1360,7 +1361,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							gcnum[o] = '\0';
 							grelation[o] = '\0';
 						}
-						system("cls");
+						system("cls"); // do the when updating, the system will clear
 						table();
 
 					}
