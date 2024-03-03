@@ -1025,7 +1025,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								coorxy(1, 4); cout << "         ";
 								coorxy(1, 4); cout << "found";
 								finder = "";
-								coorxy(19, 6); cout << students[k][1]; // youre here at displaying if found and puting value on varialble
+								coorxy(19, 6); cout << students[k][1]; // youre here at displaying if found and puting value on varialble - done
 								coorxy(57, 6); cout << students[k][2];
 								coorxy(93, 6); cout << students[k][3];
 								coorxy(18, 8); cout << students[k][4];
@@ -1104,7 +1104,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								}
 
 								coorxy(1, 4); cout << "not found";
-								// You have business here if not found
+								// You have business here if not found - done
 
 								int cn = 0; // counter finder of student who don't have pooling num
 								while (students[cn][0] != "") {
@@ -1309,15 +1309,21 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					coorxy(43, 27); cout << "  ";
 					coorxy(61, 27); cout << "  ";
 					int key = 0;
-					for (int m = 1; m < 18; m++) { // checking if students have pool number
-						if (students[i][0] == "" && students[i][m] == "") {
-							break;
+					for (int m = 1; m < 18; m++) { // checking if students have pool number & complete information - done
+						if (students[i][0] == "") {
+							if (students[i][m] == "") {
+								key = 0;
+								break;
+							}
+							else {
+								key = 1;
+							}
 						}
-						else {
+						/*else {
 							key = 1;
-						}
+						}*/
 					}
-					key = 1;
+					//key = 1;
 					if (key == 1) {
 						if (students[i][0] == "") { // making student number - done
 							key = 0;
@@ -1413,12 +1419,20 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						coorxy(3, 26 + n); cout << string(26, ' ');
 						n += 2;
 					}
+					// youre here about finding empty pooling number when deleting
+					int cn = 0; // counter
+					while (students[cn][0] != "") {
+						cn++;
+						i = cn;
+					}
+
 					coorxy(68, 27); cout << "  ";
 					coorxy(86, 27); cout << "  ";
 					system("cls");
 					table();
 				}
 				break;
+
 			case 20:
 				coorxy(92, 27); cout << "<<";
 				coorxy(112, 27); cout << ">>";
