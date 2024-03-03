@@ -964,7 +964,7 @@ int menu(int x) {
 int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 
 	system("cls");
-	string students[3][19];
+	string students[10][19];
 	string finder;
 	int i; // student counter
 	int poolnum = 20240000; // pooling num
@@ -1019,9 +1019,10 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							finder += searchpool[k];
 
 						}
-						for (int k = 0; k < 3; k++) { // pooling number finder
+						for (int k = 0; k < 10; k++) { // pooling number finder
 							if (students[k][0] == finder && students[k][0] != "") {
 								i = k;
+								coorxy(1, 4); cout << "         ";
 								coorxy(1, 4); cout << "found";
 								finder = "";
 								coorxy(19, 6); cout << students[k][1]; // youre here at displaying if found and puting value on varialble
@@ -1103,10 +1104,18 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								}
 
 								coorxy(1, 4); cout << "not found";
-							//	break;
+								// You have business here if not found
+
+								int cn = 0; // counter finder of student who don't have pooling num
+								while (students[cn][0] != "") {
+									cn++;
+									i = cn;
+								}
 							}
 						//break;
 						}
+
+
 						coorxy(31, 2); cout << string(8, ' ');
 						j = 0;
 						finder = "";
